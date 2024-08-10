@@ -8,28 +8,29 @@ This repository contains the backend code for a chat application that utilizes L
 ## Table of Contents
 
 1. [Installation](#installation)
-2. [API Documentation](#api-documentation)
+2. [Running the Project](#running-the-project)
 3. [Architecture Diagram](#architecture-diagram)
 4. [Request Flow](#request-flow)
-5. [Running the Project](#running-the-project)
-6. [Possible Improvements](#possible-improvements)
+5. [Possible Improvements](#possible-improvements)
 
 ## Installation
 
-1. **Clone the repository**:
+1. Create a [Replicate](https://replicate.com/) account and obtain an API token.
+
+2. **Clone the repository**:
 
    ```bash
    git clone https://github.com/kbavi/llm-chat.git
    cd llm-chat
    ```
 
-2. **Create the .env file**:
+3. **Create the .env file**:
 
    ```bash
    cp .env.example .env
    ```
 
-3. **Edit the .env file** with appropriate values:
+4. **Edit the .env file** with appropriate values:
 
    ```env
    REPLICATE_API_TOKEN=<your_replicate_api_token_here>
@@ -41,10 +42,24 @@ This repository contains the backend code for a chat application that utilizes L
    MISTRAL_MODEL_PATH=mistralai/mistral-7b-instruct-v0.2
    ```
 
+## Running the Project
 
-## API Documentation
+1. **Build and run the Docker containers from the base directory**:
+
+   ```bash
+   docker-compose up --build
+   ```
+
+2. The services should now be running:
+   - Node.js Backend: `http://localhost:3000`
+   - Flask Server: `http://localhost:5050`
+   - MongoDB: `mongodb://localhost:27017`
+   - Redis: `redis://localhost:6379`
+
+3. **Interact with the API** using tools like `curl` or Postman:
 
 [<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/2815732-c5e2dc35-ae2c-48a9-a780-ae7b994a47bc?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D2815732-c5e2dc35-ae2c-48a9-a780-ae7b994a47bc%26entityType%3Dcollection%26workspaceId%3D80d1a525-1ac6-4418-809c-51cd8df2044a)
+
 
 ## Architecture Diagram
 
@@ -71,28 +86,6 @@ This repository contains the backend code for a chat application that utilizes L
 4. The **Flask Server** returns the response and updated conversation ID to the **Node.js Backend**.
 5. The **Node.js Backend** stores the prompt, response, and conversation ID in **MongoDB** and sends the response back to the **Client**.
 
-
-## Prerequisites
-1. Create a [Replicate](https://replicate.com/) account and obtain an API token.
-
-
-## Running the Project
-
-1. **Build and run the Docker containers**:
-
-   ```bash
-   docker-compose up --build
-   ```
-
-2. The services should now be running:
-   - Node.js Backend: `http://localhost:3000`
-   - Flask Server: `http://localhost:5050`
-   - MongoDB: `mongodb://localhost:27017`
-   - Redis: `redis://localhost:6379`
-
-3. **Interact with the API** using tools like `curl` or Postman:
-
-[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/2815732-c5e2dc35-ae2c-48a9-a780-ae7b994a47bc?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D2815732-c5e2dc35-ae2c-48a9-a780-ae7b994a47bc%26entityType%3Dcollection%26workspaceId%3D80d1a525-1ac6-4418-809c-51cd8df2044a)
 
 ### Notes
 
