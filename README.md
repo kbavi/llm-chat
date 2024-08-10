@@ -15,7 +15,7 @@ This repository contains the backend code for a chat application that utilizes L
 
 ## Installation
 
-1. Create a [Replicate](https://replicate.com/) account and obtain an API token.
+1. Create a [Replicate](https://replicate.com/) account and obtain an API token. Replicate allows you to execute on LLM Models remotely.
 
 2. **Clone the repository**:
 
